@@ -1,25 +1,50 @@
 <template>
   <div id="wrapper">
-    <img id="logo" src="~@/assets/logo.png" alt="electron-vue">
     <main>
       <div class="left-side">
         <span class="title">
-          Welcome to your new project!
+          欢迎来到前端世界, be happy to work!
         </span>
-        <system-information></system-information>
+        <section class="project-section">
+          <div class="projects">
+              <div class="name">项目框架</div>
+              <div class="items">
+                <div class="item">
+                  <div class="item-logo"></div>
+                  <div class="item-name">活动框架</div>
+                  <div class="item-desp">市场，运营所做的活动页面的框架</div>
+                </div>
+              </div>
+          </div>
+          <div class="projects">
+              <div class="name">H5应用-vue</div>
+              <div class="items">
+                <div class="item">
+                  <div class="item-logo"></div>
+                  <div class="item-name">活动框架</div>
+                  <div class="item-desp">市场，运营所做的活动页面的框架</div>
+                </div>
+              </div>
+          </div>
+        </section>
       </div>
 
       <div class="right-side">
         <div class="doc">
-          <div class="title">Getting Started</div>
+          <div class="title">我的仓库</div>
           <p>
-            electron-vue comes packed with detailed documentation that covers everything from
-            internal configurations, using the project structure, building your application,
-            and so much more.
+            这里收藏了很多前端,框架, 工具,.....
           </p>
-          <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Read the Docs</button><br><br>
-        </div>
-        <div class="doc">
+         </div>
+        <div class="lists">
+          <div class="list">
+              <div class="name">工具</div>
+              <ul class="items">
+                  <li class="item">
+                   <button @click="open('https://simulatedgreg.gitbooks.io/electron-vue/content/')">Webpack</button><br><br>
+                  </li>
+              </ul>
+          </div>
           <div class="title alt">Other Documentation</div>
           <button class="alt" @click="open('https://electron.atom.io/docs/')">Electron</button>
           <button class="alt" @click="open('https://vuejs.org/v2/guide/')">Vue.js</button>
@@ -30,11 +55,11 @@
 </template>
 
 <script>
-  import SystemInformation from './LandingPage/SystemInformation'
+  // import SystemInformation from './LandingPage/SystemInformation'
 
   export default {
     name: 'landing-page',
-    components: { SystemInformation },
+    // components: { SystemInformation },
     methods: {
       open (link) {
         this.$electron.shell.openExternal(link)
@@ -43,8 +68,8 @@
   }
 </script>
 
-<style>
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+<style lang="less">
+  // @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
 
   * {
     box-sizing: border-box;
@@ -82,6 +107,21 @@
   .left-side {
     display: flex;
     flex-direction: column;
+
+    .project-section{
+      display:flex;
+      flex-direction: row;
+      .projects {
+        flex:1;
+        background: #ddd;
+        // color:#fff;
+        margin:0 10px;
+        box-shadow:0 0 2px 2px rgba(0,0,0,.15);
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
   }
 
   .welcome {
